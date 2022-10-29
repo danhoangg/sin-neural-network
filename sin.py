@@ -1,11 +1,11 @@
 import numpy as np
 
 def init_params():
-    W1 = np.random.rand(3,1) - 0.5
-    B1 = np.random.rand(3,1) - 0.5
-    W2 = np.random.rand(3,3) - 0.5
-    B2 = np.random.rand(3,1) - 0.5
-    W3 = np.random.rand(1,3) - 0.5
+    W1 = np.random.rand(8,1) - 0.5
+    B1 = np.random.rand(8,1) - 0.5
+    W2 = np.random.rand(8,8) - 0.5
+    B2 = np.random.rand(8,1) - 0.5
+    W3 = np.random.rand(1,8) - 0.5
     B3 = np.random.rand(1,1) - 0.5
     return W1, B1, W2, B2, W3, B3
 
