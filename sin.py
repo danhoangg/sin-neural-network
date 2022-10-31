@@ -57,7 +57,7 @@ def gradient_descent(iterations, alpha):
     W1, B1, W2, B2, W3, B3 = init_params()
     for i in range(iterations):
         X = np.array([[np.random.rand()]])
-        Y = 0.5 * np.sin(2*np.pi*X) + 0.5 
+        Y = np.sin(X)
         H1, Z1, H2, Z2, H3, Z3 = forward(W1, B1, W2, B2, W3, B3, X)
         dW3, dB3, dW2, dB2, dW1, dB1 = backward(W1, B1, W2, B2, W3, B3, H1, Z1, H2, Z2, H3, Z3, Y, X)
         W1, B1, W2, B2, W3, B3 = update_params(W1, B1, W2, B2, W3, B3, dW3, dB3, dW2, dB2, dW1, dB1, alpha)
@@ -65,8 +65,11 @@ def gradient_descent(iterations, alpha):
             error = loss(Z3, Y)
             print("Iteration: ", i)
             print("Loss: ", loss(Z3, Y))
+    error = loss(Z3, Y)
+    print("Iteration: ", i)
+    print("Loss: ", loss(Z3, Y))
     return W1, B1, W2, B2, W3, B3
 
 W1, B1, W2, B2, W3, B3 = gradient_descent(100000, 0.1)
-H1, Z1, H2, Z2, H3, Z3 = forward(W1, B1, W2, B2, W3, B3, [[0.5]])
+H1, Z1, H2, Z2, H3, Z3 = forward(W1, B1, W2, B2, W3, B3, [[np.pi/2]])
 print(Z3)
